@@ -63,10 +63,16 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
         {
           test: /.css$/,
           type: 'asset/resource',
+          generator: {
+            filename: 'css/[hash][ext][query]',
+          },
         },
         {
           test: /\.(jpg|png|svg)$/,
           type: 'asset/resource',
+          generator: {
+            filename: 'images/[hash][ext][query]',
+          },
         },
       ],
     },
