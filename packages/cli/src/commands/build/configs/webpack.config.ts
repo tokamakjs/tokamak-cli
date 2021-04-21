@@ -1,5 +1,6 @@
-import { BetterProgressPlugin, initialAppMessage } from '@tokamakjs/dev-utils';
-import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
+import path from 'path';
+
+import { BetterProgressPlugin } from '@tokamakjs/dev-utils';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { EnvironmentPlugin } from 'webpack';
@@ -8,12 +9,10 @@ import { Configuration } from 'webpack';
 import { WebpackConfigParams } from '../../../types';
 
 export function createWebpackConfig(params: WebpackConfigParams): Configuration {
-  const initialMessage = initialAppMessage(params.appName, params.port, params.env);
-
   const config: Configuration = {
-    mode: 'development',
+    mode: 'production',
+    devtool: 'source-map',
     stats: 'errors-only',
-    devtool: 'cheap-module-source-map',
     infrastructureLogging: {
       level: 'error',
     },
@@ -28,19 +27,18 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
       publicPath: '/',
       filename: 'js/[name].js',
       sourceMapFilename: 'maps/[file].map',
+      path: path.resolve(process.cwd(), 'dist'),
     },
     optimization: {
       moduleIds: 'named',
       emitOnErrors: false,
+      runtimeChunk: { name: 'runtime' },
+      splitChunks: { name: 'vendor', chunks: 'all' },
     },
     plugins: [
       new HtmlWebpackPlugin({ filename: 'index.html', template: './public/index.html' }),
       new EnvironmentPlugin(params.env),
-      new BetterProgressPlugin({
-        mode: 'bar',
-        summary: () => process.stdout.write(initialMessage),
-      }),
-      new FriendlyErrorsPlugin({ clearConsole: false }),
+      new BetterProgressPlugin({ mode: 'detailed' }),
     ],
     module: {
       rules: [
@@ -89,16 +87,6 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
           },
         },
       ],
-    },
-  };
-
-  config.devServer = {
-    host: '0.0.0.0',
-    port: params.port,
-    historyApiFallback: true,
-    hot: true,
-    client: {
-      logging: 'none',
     },
   };
 

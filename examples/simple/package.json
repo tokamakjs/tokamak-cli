@@ -5,7 +5,8 @@
   "license": "MIT",
   "main": "src/index.ts",
   "scripts": {
-    "start": "tok start"
+    "start": "tok start",
+    "build": "tok build"
   },
   "devDependencies": {
     "@tokamakjs/cli": "^0.2.0"
