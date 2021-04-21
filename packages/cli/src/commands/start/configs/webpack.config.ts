@@ -1,3 +1,4 @@
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BetterProgressPlugin, initialAppMessage } from '@tokamakjs/dev-utils';
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -41,6 +42,7 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
         summary: () => process.stdout.write(initialMessage),
       }),
       new FriendlyErrorsPlugin({ clearConsole: false }),
+      new ReactRefreshWebpackPlugin(),
     ],
     module: {
       rules: [
@@ -56,7 +58,13 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
           use: [
             {
               loader: require.resolve('babel-loader'),
-              options: params.babelConfig,
+              options: {
+                env: {
+                  development: {
+                    plugins: [require.resolve('react-refresh/babel')],
+                  },
+                },
+              },
             },
             {
               loader: require.resolve('ts-loader'),
