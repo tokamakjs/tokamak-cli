@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "@tokamakjs/cli": "^0.2.0"
+  },
+  "dependencies": {
+    "modern-normalize": "^1.0.0"
   }
 }
