@@ -3,9 +3,10 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@tokamakjs/cli": ["../../packages/cli"]
+      "@tokamakjs/cli": ["../../packages/cli"],
+      "@tokamakjs/dev-utils": ["../../packages/dev-utils"]
     }
   },
   "exclude": ["node_modules", "dist"],
-  "references": [{ "path": "../../packages/cli" }]
+  "references": [{ "path": "../../packages/cli" }, { "path": "../../packages/dev-utils" }]
 }
