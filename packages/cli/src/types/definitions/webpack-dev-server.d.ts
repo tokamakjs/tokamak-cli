@@ -20,7 +20,21 @@ declare module 'webpack-dev-server' {
 
     type ProxyConfigArray = ProxyConfigArrayItem[];
 
-    interface Configuration {}
+    interface Configuration {
+      host?: string;
+      hot?: boolean | 'only';
+      port?: number | string | undefined;
+      historyApiFallback?: boolean;
+      client?: {
+        port?: number | string | undefined;
+        host?: string;
+        logging?: 'none' | 'error' | 'warn' | 'info' | 'log' | 'verbose';
+        progress?: boolean;
+        overlay?: boolean | { errors?: boolean; warnings?: boolean };
+        neeedClientEntry?: boolean;
+        needHotEntry?: boolean;
+      };
+    }
   }
 
   module 'webpack' {

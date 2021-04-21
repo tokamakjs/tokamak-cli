@@ -8,4 +8,5 @@ export interface WebpackConfigParams {
   appName: string;
   babelConfig: BabelConfig;
   env: Array<string>;
+  port: number;
 }

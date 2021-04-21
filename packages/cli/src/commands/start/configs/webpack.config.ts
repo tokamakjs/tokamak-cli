@@ -1,3 +1,5 @@
+import { BetterProgressPlugin, initialAppMessage } from '@tokamakjs/dev-utils';
+import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { EnvironmentPlugin } from 'webpack';
@@ -6,8 +8,14 @@ import { Configuration } from 'webpack';
 import { WebpackConfigParams } from '../../../types';
 
 export function createWebpackConfig(params: WebpackConfigParams): Configuration {
+  const initialMessage = initialAppMessage(params.appName, params.port, params.env);
+
   const config: Configuration = {
     mode: 'development',
+    stats: 'errors-only',
+    infrastructureLogging: {
+      level: 'error',
+    },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
       plugins: [new TsconfigPathsPlugin()],
@@ -27,6 +35,11 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
     plugins: [
       new HtmlWebpackPlugin({ filename: 'index.html', template: './public/index.html' }),
       new EnvironmentPlugin(params.env),
+      new BetterProgressPlugin({
+        mode: 'bar',
+        summary: () => process.stdout.write(initialMessage),
+      }),
+      new FriendlyErrorsPlugin({ clearConsole: false }),
     ],
     module: {
       rules: [
@@ -75,6 +88,16 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
           },
         },
       ],
+    },
+  };
+
+  config.devServer = {
+    host: '0.0.0.0',
+    port: params.port,
+    historyApiFallback: true,
+    hot: true,
+    client: {
+      logging: 'none',
     },
   };
 

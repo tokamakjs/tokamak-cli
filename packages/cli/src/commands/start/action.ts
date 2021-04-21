@@ -4,6 +4,8 @@ import WebpackDevServer from 'webpack-dev-server';
 
 import { createWebpackConfig } from './configs/webpack.config';
 
+const WEBPACK_PORT = 4200;
+
 export async function startAction(): Promise<void> {
   const cwd = process.cwd();
   const appPackageJson: PackageJson = require(`${cwd}/package.json`);
@@ -13,10 +15,11 @@ export async function startAction(): Promise<void> {
     appName: '__APP NAME__',
     babelConfig: {},
     env: [],
+    port: WEBPACK_PORT,
   });
 
   const compiler = webpack(webpackConfig);
   const devServer = new WebpackDevServer(compiler, webpackConfig.devServer);
 
-  devServer.listen(4200);
+  devServer.listen(WEBPACK_PORT);
 }
