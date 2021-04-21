@@ -82,7 +82,7 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
           },
         },
         {
-          test: /\.(jpg|png|svg)$/,
+          test: /\.(jpg|png|svg|ico)$/,
           type: 'asset/resource',
           generator: {
             filename: 'images/[hash][ext][query]',
