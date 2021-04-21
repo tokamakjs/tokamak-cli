@@ -35,7 +35,7 @@ function _writeToStdout(text: string): void {
   process.stdout.write(`${text}\n`);
 }
 
-export function detailedProgress(): ProgressPlugin.Handler {
+export function detailedProgress(): ProgressPlugin['handler'] {
   _writeToStdout(c.bold('Webpack starting...'));
 
   let latestMessage: string;

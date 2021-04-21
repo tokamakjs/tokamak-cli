@@ -9,11 +9,11 @@ const ts = gulpTypescript.createProject('tsconfig.json', {
   noUnusedParameters: process.env.NODE_ENV !== 'development',
 });
 
-function cleanPackages() {
+function clean() {
   return new Promise((r) => rimraf('./lib', r));
 }
 
-function buildPackages() {
+function buildLib() {
   const buildTs = src([
     'src/**/*.{ts,tsx}',
     '!src/**/*.test.*',
@@ -31,10 +31,10 @@ function watchPackages() {
   watch(
     ['./src/**/*.{ts,tsx}', '!./src/**/*.test.{ts,tsx}'],
     { ignoreInitial: false },
-    series(buildPackages, copyTemplate),
+    series(buildLib, copyTemplate),
   );
 }
 
 // Tasks
-module.exports.default = series(cleanPackages, buildPackages, copyTemplate);
+module.exports.default = series(clean, buildLib, copyTemplate);
 module.exports.watch = series(watchPackages);

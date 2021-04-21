@@ -8,6 +8,6 @@ export const startCommand = new Command('start')
     process.env.NODE_ENV = process.env.NODE_ENV ?? 'development';
 
     // Use require() syntax to be able to setup env before requiring
-    const { startAction } = require('./start-action');
+    const { startAction } = require('./action');
     startAction();
   });

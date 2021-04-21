@@ -8,7 +8,7 @@ import { capitalize, getModulesMessage, truncate } from './utils';
 
 process.on('SIGINT', () => process.exit());
 
-export function barProgress(): ProgressPlugin.Handler {
+export function barProgress(): ProgressPlugin['handler'] {
   const format = `${c.bold(':msg')}  :bar  ${c.green(':percent')} :mpr`;
 
   const progressBar = new ProgressBar(format, {
