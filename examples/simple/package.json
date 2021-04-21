@@ -4,5 +4,10 @@
   "description": "",
   "license": "MIT",
   "main": "src/index.ts",
-  "scripts": {}
+  "scripts": {
+    "start": "tok start"
+  },
+  "devDependencies": {
+    "@tokamakjs/cli": "^0.2.0"
+  }
 }

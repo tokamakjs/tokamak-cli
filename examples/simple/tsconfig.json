@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@tokamakjs/cli": ["../../packages/cli"]
+    }
+  },
+  "exclude": ["node_modules", "dist"],
+  "references": [{ "path": "../../packages/cli" }]
+}
