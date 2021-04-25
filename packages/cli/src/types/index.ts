@@ -15,3 +15,7 @@ export interface TokamakConfig {
   port?: number;
   env?: Array<string>;
 }
+
+export interface TemplateConfig {
+  name: string;
+}

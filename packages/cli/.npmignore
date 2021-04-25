@@ -6,6 +6,9 @@ node_modules
 
 # Source code
 src
+babel.config.json
+gulpfile.js
+tsconfig.json
 
 # Misc
 .DS_Store

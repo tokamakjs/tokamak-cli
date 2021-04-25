@@ -1,0 +1,37 @@
+{
+  "name": "tokamak-app",
+  "version": "1.0.0",
+  "description": "A Tokamak app.",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "start": "tok start",
+    "build": "tok build"
+  },
+  "devDependencies": {
+    "@babel/core": "7.13.16",
+    "@babel/preset-env": "7.13.15",
+    "@babel/preset-react": "7.13.13",
+    "@types/react": "17.0.4",
+    "@types/react-dom": "17.0.3",
+    "import-sort-style-local": "1.0.0",
+    "prettier": "2.2.1",
+    "prettier-plugin-import-sort": "0.0.6",
+    "rimraf": "3.0.2",
+    "typescript": "4.2.4"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.13.17",
+    "@tokamakjs/cli": "^0.2.0",
+    "@tokamakjs/common": "0.2.0-alpha.8",
+    "@tokamakjs/react": "0.2.0-alpha.9",
+    "class-transformer": "^0.4.0",
+    "graphql": "^15.5.0",
+    "modern-normalize": "1.0.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "zod": "^3.0.0-alpha.39"
+  }
+}

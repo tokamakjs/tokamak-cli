@@ -6,8 +6,8 @@ const { program } = require('commander');
 
 const packageJson = require('../package.json');
 const { buildCommand } = require('../lib/commands/build');
-// const { generateCommand } = require('../lib/commands/generate');
-// const { newCommand } = require('../lib/commands/new');
+const { generateCommand } = require('../lib/commands/generate');
+const { newCommand } = require('../lib/commands/new');
 const { startCommand } = require('../lib/commands/start');
 
 program
@@ -15,8 +15,8 @@ program
   .name('tok')
   .usage('<command> [options]')
   .addHelpCommand(false)
-  // .addCommand(newCommand)
+  .addCommand(newCommand)
   .addCommand(startCommand)
   .addCommand(buildCommand)
-  // .addCommand(generateCommand)
+  .addCommand(generateCommand)
   .parse(process.argv);

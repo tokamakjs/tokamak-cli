@@ -14,27 +14,18 @@ function clean() {
 }
 
 function buildLib() {
-  const buildTs = src([
-    'src/**/*.{ts,tsx}',
-    '!src/**/*.test.*',
-    '!src/**/template/**/*',
-    '!src/**/template/**/.*',
-  ]).pipe(ts());
+  const buildTs = src(['src/**/*.{ts,tsx}', '!src/**/*.test.*']).pipe(ts());
   return merge(buildTs.js.pipe(gulpBabel()), buildTs.dts).pipe(dest('./lib'));
-}
-
-function copyTemplate() {
-  return src(['src/**/template/**/*', 'src/**/template/**/.*']).pipe(dest('./lib'));
 }
 
 function watchPackages() {
   watch(
     ['./src/**/*.{ts,tsx}', '!./src/**/*.test.{ts,tsx}'],
     { ignoreInitial: false },
-    series(buildLib, copyTemplate),
+    series(buildLib),
   );
 }
 
 // Tasks
-module.exports.default = series(clean, buildLib, copyTemplate);
+module.exports.default = series(clean, buildLib);
 module.exports.watch = series(watchPackages);
