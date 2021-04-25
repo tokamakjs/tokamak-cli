@@ -3,8 +3,7 @@ import { BetterProgressPlugin, initialAppMessage } from '@tokamakjs/dev-utils';
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import { EnvironmentPlugin } from 'webpack';
-import { Configuration } from 'webpack';
+import webpack, { Configuration, EnvironmentPlugin } from 'webpack';
 
 import { WebpackConfigParams } from '../../../types';
 
@@ -38,6 +37,7 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
       new HtmlWebpackPlugin({ filename: 'index.html', template: './public/index.html' }),
       new EnvironmentPlugin(params.env),
       new BetterProgressPlugin({
+        context: webpack,
         mode: 'bar',
         summary: () => process.stdout.write(initialMessage),
       }),

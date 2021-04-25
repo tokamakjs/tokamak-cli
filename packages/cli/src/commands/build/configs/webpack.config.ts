@@ -3,8 +3,7 @@ import path from 'path';
 import { BetterProgressPlugin } from '@tokamakjs/dev-utils';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import { EnvironmentPlugin } from 'webpack';
-import { Configuration } from 'webpack';
+import webpack, { Configuration, EnvironmentPlugin } from 'webpack';
 
 import { WebpackConfigParams } from '../../../types';
 
@@ -38,7 +37,7 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
     plugins: [
       new HtmlWebpackPlugin({ filename: 'index.html', template: './public/index.html' }),
       new EnvironmentPlugin(params.env),
-      new BetterProgressPlugin({ mode: 'detailed' }),
+      new BetterProgressPlugin({ mode: 'detailed', context: webpack }),
     ],
     module: {
       rules: [

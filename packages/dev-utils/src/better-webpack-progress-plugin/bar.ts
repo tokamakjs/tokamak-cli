@@ -27,8 +27,8 @@ export function barProgress(): ProgressPlugin['handler'] {
 
     logUpdate(
       progressBar.update(percentage, {
-        msg: capitalize(message),
-        mpr: `\n ${c.grey(`${figures.arrowRight} ${moduleMessage}`)}`,
+        msg: ` ${capitalize(message)}`,
+        mpr: `\n  ${c.grey(`${figures.arrowRight} ${moduleMessage}`)}`,
       }),
     );
 
