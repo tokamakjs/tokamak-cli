@@ -1,0 +1,8 @@
+# If more advanced customization is needed, use tokamak.config.ts
+
+# Why use yml instead of json?
+# Because it allows comments
+name: SIMPLE EXAMPLE 2
+port: 4200
+env:
+  - NODE_ENV

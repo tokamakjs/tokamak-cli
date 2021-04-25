@@ -54,7 +54,7 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
           use: [
             {
               loader: require.resolve('babel-loader'),
-              options: params.babelConfig,
+              options: {},
             },
             {
               loader: require.resolve('ts-loader'),

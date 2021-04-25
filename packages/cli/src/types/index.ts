@@ -6,7 +6,12 @@ export interface BabelConfig {
 export interface WebpackConfigParams {
   entry: string;
   appName: string;
-  babelConfig: BabelConfig;
   env: Array<string>;
   port: number;
+}
+
+export interface TokamakConfig {
+  name?: string;
+  port?: number;
+  env?: Array<string>;
 }
