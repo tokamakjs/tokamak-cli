@@ -10,14 +10,15 @@ import { createFiles } from './template';
 
 const DEPENDENCIES = [
   '@babel/runtime',
+  '@emotion/css',
   '@tokamakjs/cli',
-  '@tokamakjs/react',
   '@tokamakjs/common',
+  '@tokamakjs/react',
+  'class-transformer',
+  'graphql',
   'modern-normalize',
   'react-dom@17',
   'react@17',
-  'graphql',
-  'class-transformer',
   'zod@next',
 ];
 
@@ -25,6 +26,7 @@ const DEV_DEPENDENCIES = [
   '@babel/core',
   '@babel/preset-env@7',
   '@babel/preset-react@7',
+  '@emotion/babel-plugin',
   '@types/react-dom@17',
   '@types/react@17',
   'import-sort-style-local',
