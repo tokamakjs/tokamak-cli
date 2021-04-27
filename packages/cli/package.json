@@ -1,6 +1,6 @@
 {
   "name": "@tokamakjs/cli",
-  "version": "0.2.0-alpha.5",
+  "version": "0.2.0-y.0",
   "description": "Tokamak cli.",
   "author": "Lars <lars.bs@hotmail.com>",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "@babel/traverse": "^7.13.17",
     "@babel/types": "^7.13.17",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
-    "@tokamakjs/dev-utils": "^0.2.0-alpha.1",
+    "@tokamakjs/dev-utils": "^0.2.0-y.0",
     "babel-loader": "^8.2.2",
     "chalk": "^4.1.1",
     "commander": "^7.2.0",
