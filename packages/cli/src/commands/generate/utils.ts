@@ -69,6 +69,7 @@ export function prettierFormat(code: string): string {
     quoteProps: 'consistent',
     arrowParens: 'always',
     htmlWhitespaceSensitivity: 'strict',
+    plugins: [require.resolve('prettier-plugin-import-sort')],
   });
 }
 
@@ -137,7 +138,9 @@ export async function addProvider(
           [t.importSpecifier(t.identifier(ClassName), t.identifier(ClassName))],
           t.stringLiteral(importPath),
         );
-        path.node.body.push(importDeclaration);
+        // Add the new import as the first node, it doesn't matter because
+        // it will be sorted after by prettier
+        path.node.body.unshift(importDeclaration);
       }
     },
     Decorator(path) {
