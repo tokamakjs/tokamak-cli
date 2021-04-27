@@ -26,6 +26,7 @@ const DEV_DEPENDENCIES = [
   '@babel/core',
   '@babel/preset-env@7',
   '@babel/preset-react@7',
+  '@babel/plugin-transform-runtime@7',
   '@emotion/babel-plugin',
   '@types/react-dom@17',
   '@types/react@17',
