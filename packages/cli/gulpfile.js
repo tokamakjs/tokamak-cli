@@ -14,7 +14,7 @@ function clean() {
 }
 
 function buildLib() {
-  const buildTs = src(['src/**/*.{ts,tsx}', '!src/**/*.test.*']).pipe(ts());
+  const buildTs = src(['./src/**/*.{ts,tsx}', '!./src/**/*.test.*']).pipe(ts());
   return merge(buildTs.js.pipe(gulpBabel()), buildTs.dts).pipe(dest('./lib'));
 }
 
