@@ -1,4 +1,7 @@
 #!/usr/bin/env node
 
 require('dotenv').config();
-require('../lib/cli');
+
+const packageJson = require('../package.json');
+
+require('../lib/cli').default(packageJson.version);
