@@ -20,6 +20,6 @@ const TSCONFIG_BASE_JSON_TEMPLATE = `{
   }
 }`;
 
-export async function createTsConfigBaseJson(outputDir: string, config: unknown): Promise<void> {
+export async function createTsConfigBaseJson(outputDir: string, _config: unknown): Promise<void> {
   await createFile(outputDir, 'tsconfig.base.json', TSCONFIG_BASE_JSON_TEMPLATE);
 }
