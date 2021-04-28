@@ -37,7 +37,10 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs-extra": "^9.1.0",
     "html-webpack-plugin": "^5.3.1",
+    "import-sort-style-local": "^1.0.0",
     "lodash": "^4.17.21",
+    "prettier": "^2.2.1",
+    "prettier-plugin-import-sort": "^0.0.6",
     "react-refresh": "^0.10.0",
     "source-map-loader": "^2.0.1",
     "ts-loader": "^9.0.2",
@@ -60,15 +63,7 @@
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
-    "import-sort-style-local": "^1.0.0",
     "merge-stream": "^2.0.0",
-    "prettier": "^2.2.1",
-    "prettier-plugin-import-sort": "^0.0.6",
     "type-fest": "^1.0.2"
-  },
-  "peerDependencies": {
-    "import-sort-style-local": "^1.0.0",
-    "prettier": ">=2",
-    "prettier-plugin-import-sort": "^0.0.6"
   }
 }
