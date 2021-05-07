@@ -1,7 +1,6 @@
 import { createFile } from '../../../../../../../../utils';
 
-const ROOT_CONTROLLER_TS_TEMPLATE = /* ts */ `import { RouterService } from '@tokamakjs/common';
-import { Controller, onDidMount, onDidRender, state } from '@tokamakjs/react';
+const ROOT_CONTROLLER_TS_TEMPLATE = `import { Controller, onDidMount, onDidRender, state } from '@tokamakjs/react';
 
 import { RootView } from './root.view';
 

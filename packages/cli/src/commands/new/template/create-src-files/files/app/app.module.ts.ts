@@ -2,10 +2,10 @@ import { createFile } from '../../../../../../utils';
 
 const APP_MODULE_TS_TEMPLATE = `import { RouterModule, SubApp, createRoute } from '@tokamakjs/react';
 
-import { RootView } from './routes/root';
+import RootRoute from './routes/root';
 
 @SubApp({
-  routing: [createRoute('/', RootView, [])],
+  routing: [createRoute('/', RootRoute, [])],
   providers: [],
   imports: [RouterModule],
 })
