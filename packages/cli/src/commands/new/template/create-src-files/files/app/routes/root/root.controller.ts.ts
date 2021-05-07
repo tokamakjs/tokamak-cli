@@ -1,9 +1,11 @@
 import { createFile } from '../../../../../../../../utils';
 
-const ROOT_CONTROLLER_TS_TEMPLATE = `import { RouterService } from '@tokamakjs/common';
+const ROOT_CONTROLLER_TS_TEMPLATE = /* ts */ `import { RouterService } from '@tokamakjs/common';
 import { Controller, onDidMount, onDidRender, state } from '@tokamakjs/react';
 
-@Controller()
+import { RootView } from './root.view';
+
+@Controller({ view: RootView })
 export class RootController {
   @state public counter = 0;
 

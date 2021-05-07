@@ -13,7 +13,7 @@ const styles = {
 };
 
 export const RootView = () => {
-  const ctrl = useController(RootController);
+  const ctrl = useController<RootController>();
 
   return (
     <Fragment>

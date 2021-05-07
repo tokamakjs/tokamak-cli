@@ -8,23 +8,33 @@ import { createFile, logLine, removeCwd } from '../../../utils';
 import { fileExists, findProjectRoot, getModuleFolder, pascalCase } from '../utils';
 import { generateSubApp } from './generate-subapp';
 
+// CONTROLLER_TEMPLATE ---
 const CONTROLLER_TEMPLATE = (name: string) => `import { Controller } from '@tokamakjs/react';
 
-@Controller()
-export class ${pascalCase(name)}Controller {}`;
+import { ${pascalCase(name)}View } from './${name}.view';
 
+@Controller({ view: ${pascalCase(name)}View })
+export class ${pascalCase(name)}Controller {}`;
+// --- CONTROLLER_TEMPLATE
+
+// VIEW_TEMPLATE ---
 const VIEW_TEMPLATE = (name: string) => `import { useController } from '@tokamakjs/react';
 
 import { ${pascalCase(name)}Controller } from './${name}.controller';
 
 export const ${pascalCase(name)}View = () => {
-  const ctrl = useController(${pascalCase(name)}Controller);
+  const ctrl = useController<${pascalCase(name)}Controller>();
 
   return <div></div>;
 }`;
+// --- VIEW_TEMPLATE
 
-const INDEX_TEMPLATE = (name: string) =>
-  `export { ${pascalCase(name)}View } from './${name}.view';`;
+// INDEX_TEMPLATE ---
+const INDEX_TEMPLATE = (name: string) => `import { ${pascalCase(
+  name,
+)}Controller } from './${name}.controller';
+export default ${pascalCase(name)}Controller;`;
+// --- INDEX_TEMPLATE
 
 async function action(name: string): Promise<void> {
   const pRoot = await findProjectRoot();
