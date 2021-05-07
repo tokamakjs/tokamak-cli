@@ -42,7 +42,7 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
         summary: () => process.stdout.write(initialMessage),
       }),
       new FriendlyErrorsPlugin({ clearConsole: false }),
-      new ReactRefreshWebpackPlugin(),
+      new ReactRefreshWebpackPlugin({ overlay: false }),
     ],
     module: {
       rules: [
