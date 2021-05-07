@@ -1,6 +1,6 @@
 {
   "name": "tokamak-app",
-  "version": "0.2.0-alpha.8",
+  "version": "0.2.0-alpha.9",
   "description": "A Tokamak app.",
   "license": "UNLICENSED",
   "private": true,
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.13.17",
-    "@tokamakjs/cli": "^0.2.0-alpha.8",
+    "@tokamakjs/cli": "^0.2.0-alpha.9",
     "@tokamakjs/common": "0.2.0-alpha.8",
     "@tokamakjs/react": "0.2.0-alpha.9",
     "class-transformer": "^0.4.0",
