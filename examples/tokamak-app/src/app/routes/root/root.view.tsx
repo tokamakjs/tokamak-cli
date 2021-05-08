@@ -1,21 +1,26 @@
+import { css } from '@emotion/css';
 import { Outlet, useController } from '@tokamakjs/react';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 
 import { RootController } from './root.controller';
 
+const styles = {
+  title: css`
+    color: red;
+  `
+};
+
 export const RootView = () => {
-  const ctrl = useController(RootController);
+  const ctrl = useController<RootController>();
 
   return (
     <Fragment>
-      <h1>Hello from Tokamak</h1>
+      <h1 className={styles.title}>Hello from Tokamak</h1>
       <h2>Counter: {ctrl.counter}</h2>
       <button onClick={() => ctrl.increase()}> +1 </button>
-      <br />
-      <br />
+      <br /><br />
       <button onClick={() => ctrl.decrease()}> -1 </button>
-      <br />
-      <br />
+      <br /><br />
       <Outlet />
     </Fragment>
   );

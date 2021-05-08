@@ -1,7 +1,8 @@
-import { RouterService } from '@tokamakjs/common';
 import { Controller, onDidMount, onDidRender, state } from '@tokamakjs/react';
 
-@Controller()
+import { RootView } from './root.view';
+
+@Controller({ view: RootView })
 export class RootController {
   @state public counter = 0;
 
