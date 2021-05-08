@@ -1,7 +1,7 @@
 import { createFile } from '../../../../../utils';
 
-export const BABEL_CONFIG_JSON_TEMPLATE = `{
-  "presets": ["@babel/preset-react", "@babel/preset-env"],
+export const BABEL_CONFIG_JSON_TEMPLATE = /* json */ `{
+  "presets": [["@babel/preset-react", { "runtime": "automatic" }], "@babel/preset-env"],
   "plugins": [
     ["@babel/plugin-transform-runtime"],
     [

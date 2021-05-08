@@ -23,7 +23,7 @@ const DEPENDENCIES = [
 ];
 
 const DEV_DEPENDENCIES = [
-  '@babel/core',
+  '@babel/core@7',
   '@babel/preset-env@7',
   '@babel/preset-react@7',
   '@babel/plugin-transform-runtime@7',
@@ -33,9 +33,8 @@ const DEV_DEPENDENCIES = [
   'import-sort-style-local',
   'prettier-plugin-import-sort',
   'prettier',
-  'prettier',
   'rimraf',
-  'typescript',
+  'typescript@4',
 ];
 
 const CONFLICTING_FILES = ['package.json'];
