@@ -2,7 +2,7 @@ import { createFile } from '../../../../../../../../utils';
 
 const ROOT_VIEW_TS_TEMPLATE = `import { css } from '@emotion/css';
 import { Outlet, useController } from '@tokamakjs/react';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 
 import { RootController } from './root.controller';
 
