@@ -1,6 +1,6 @@
 {
   "name": "@tokamakjs/dev-utils",
-  "version": "0.2.0-alpha.6.0",
+  "version": "0.2.0",
   "description": "Tokamak dev utils.",
   "author": "Lars <lars.bs@hotmail.com>",
   "license": "MIT",
