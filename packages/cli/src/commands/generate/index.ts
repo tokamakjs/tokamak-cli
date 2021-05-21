@@ -1,6 +1,7 @@
 import { Command } from 'commander';
 
 import { genApiCommand } from './commands/generate-api';
+import { genComponentCommand } from './commands/generate-component';
 import { genHookServiceCommand } from './commands/generate-hook-service';
 import { genModuleCommand } from './commands/generate-module';
 import { genRouteCommand } from './commands/generate-route';
@@ -16,4 +17,5 @@ export const generateCommand = new Command('generate')
   .addCommand(genSubAppCommand)
   .addCommand(genServiceCommand)
   .addCommand(genHookServiceCommand)
-  .addCommand(genApiCommand);
+  .addCommand(genApiCommand)
+  .addCommand(genComponentCommand);
