@@ -24,7 +24,8 @@ interface ${ComponentName}Props {}
 
 export const ${ComponentName} = ({}: ${ComponentName}Props) => {
   return <div className={styles.${camelCase(ComponentName)}}></div>;
-}`;
+};
+`;
 
 async function action(name: string): Promise<void> {
   const pRoot = await findProjectRoot();

@@ -17,7 +17,8 @@ const COMPONENT_TEMPLATE = (ComponentName: string) => `interface ${ComponentName
 
 export const ${ComponentName} = ({}: ${ComponentName}Props) => {
   return <div></div>;
-}`;
+};
+`;
 
 async function action(name: string): Promise<void> {
   const pRoot = await findProjectRoot();

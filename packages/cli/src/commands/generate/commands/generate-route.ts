@@ -33,7 +33,7 @@ export const ${pascalCase(name)}View = () => {
 const INDEX_TEMPLATE = (name: string) => `import { ${pascalCase(
   name,
 )}Controller } from './${name}.controller';
-export default ${pascalCase(name)}Controller;`;
+export { ${pascalCase(name)}Controller as ${pascalCase(name)}Route };`;
 // --- INDEX_TEMPLATE
 
 async function action(name: string): Promise<void> {
