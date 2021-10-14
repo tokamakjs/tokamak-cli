@@ -1,5 +1,5 @@
 name: APP ROOT
 port: 4200
-app_root: src/root
+app_module: ./src/app
 env:
   - NODE_ENV
