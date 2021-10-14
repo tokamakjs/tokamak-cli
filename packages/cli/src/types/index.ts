@@ -14,6 +14,7 @@ export interface WebpackConfigParams {
 export interface TokamakConfig {
   name: string;
   port: number;
+  entry: string;
   env: Array<string>;
   appModule: string;
   publicFolder: string;

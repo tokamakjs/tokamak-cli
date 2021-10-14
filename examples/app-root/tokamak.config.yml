@@ -1,5 +1,6 @@
 name: APP ROOT
 port: 4200
+entry: src/entry.ts
 app_module: src/app
 public_folder: public_files
 env:

@@ -1,4 +1,3 @@
-import { PackageJson } from 'type-fest';
 import { webpack } from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 
@@ -7,11 +6,10 @@ import { createWebpackConfig } from './configs/webpack.config';
 
 export async function startAction(): Promise<void> {
   const cwd = process.cwd();
-  const appPackageJson: PackageJson = require(`${cwd}/package.json`);
   const appConfig = readAppConfig(cwd);
 
   const webpackConfig = createWebpackConfig({
-    entry: appPackageJson.main ?? '',
+    entry: appConfig.entry,
     appName: appConfig.name,
     env: appConfig.env,
     port: appConfig.port,

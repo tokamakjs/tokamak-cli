@@ -18,6 +18,7 @@ function _getDefaults(cwd: string): TokamakConfig {
     name: 'TOKAMAK APP',
     port: 4200,
     env: ['NODE_ENV'],
+    entry: appPackageJson.main ?? '',
     appModule: path.join(cwd, path.dirname(appPackageJson.main ?? '')),
     publicFolder: path.join(cwd, 'public'),
   };
