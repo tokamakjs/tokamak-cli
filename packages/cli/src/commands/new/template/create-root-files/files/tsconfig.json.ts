@@ -5,7 +5,7 @@ const TSCONFIG_JSON_TEMPLATE = `{
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "~/*": ["./src/*"],
+      "~/*": ["./app/*"],
     }
   },
   "exclude": ["node_modules", "dist"],

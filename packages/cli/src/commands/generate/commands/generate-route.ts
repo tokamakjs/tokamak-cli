@@ -38,7 +38,7 @@ export { ${pascalCase(name)}Controller as ${pascalCase(name)}Route };`;
 
 async function action(name: string): Promise<void> {
   const pRoot = await findProjectRoot();
-  const moduleDir = path.join(pRoot, getModuleFolder(name, false));
+  const moduleDir = path.join(pRoot, await getModuleFolder(name, false));
   const moduleName = path.basename(moduleDir);
   const moduleFile = path.join(moduleDir, `${moduleName}.module.ts`);
 

@@ -4,7 +4,7 @@
   "description": "A Tokamak app with modified app root.",
   "license": "UNLICENSED",
   "private": true,
-  "main": "src/app/index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "clean": "rimraf dist",
     "start": "tok start",

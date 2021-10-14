@@ -7,7 +7,7 @@ const PACKAGE_JSON_TEMPLATE = (config: TemplateConfig) => `{
   "description": "A Tokamak app.",
   "license": "UNLICENSED",
   "private": true,
-  "main": "src/index.ts",
+  "main": "app/index.ts",
   "scripts": {
     "clean": "rimraf dist",
     "start": "tok start",

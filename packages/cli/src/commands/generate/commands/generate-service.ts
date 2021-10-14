@@ -2,7 +2,6 @@ import path from 'path';
 
 import chalk from 'chalk';
 import { Command } from 'commander';
-import fs from 'fs-extra';
 
 import { createFile, logLine, removeCwd } from '../../../utils';
 import {
@@ -15,7 +14,7 @@ import {
 } from '../utils';
 import { generateModule } from './generate-module';
 
-const MODULE_TEMPLATE = (ClassName: string) => `import { Injectable } from '@tokamakjs/react';
+const SERVICE_TEMPLATE = (ClassName: string) => `import { Injectable } from '@tokamakjs/react';
 
 @Injectable()
 export class ${ClassName} {}
@@ -23,7 +22,7 @@ export class ${ClassName} {}
 
 async function action(name: string): Promise<void> {
   const pRoot = await findProjectRoot();
-  const moduleDir = path.join(pRoot, getModuleFolder(name, false));
+  const moduleDir = path.join(pRoot, await getModuleFolder(name, false));
   const moduleName = path.basename(moduleDir);
   const moduleFile = path.join(moduleDir, `${moduleName}.module.ts`);
 
@@ -32,8 +31,6 @@ async function action(name: string): Promise<void> {
   }
 
   const serviceName = name.split('/').slice(-1)[0];
-
-  await fs.ensureDir(moduleDir);
 
   const newFileDir = path.join(moduleDir, 'services');
   const newFilePath = path.join(newFileDir, `${serviceName}.service.ts`);
@@ -44,7 +41,7 @@ async function action(name: string): Promise<void> {
     process.exit(1);
   }
 
-  await createFile(newFilePath, '', MODULE_TEMPLATE(ClassName));
+  await createFile(newFilePath, '', SERVICE_TEMPLATE(ClassName));
   await addToIndexExports(newFileDir, `${serviceName}.service`);
   await addProvider(moduleDir, './services', ClassName);
 

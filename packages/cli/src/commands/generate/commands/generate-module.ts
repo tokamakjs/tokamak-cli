@@ -20,7 +20,8 @@ export class ${name}Module {}
 export async function generateModule(name: string): Promise<void> {
   const pRoot = await findProjectRoot();
   const moduleName = name.split('/').slice(-1)[0];
-  const moduleFolder = path.join(pRoot, getModuleFolder(name, true));
+  const moduleFolder = path.join(pRoot, await getModuleFolder(name, true));
+
   await fs.ensureDir(moduleFolder);
   const newModuleFile = path.join(moduleFolder, `${moduleName}.module.ts`);
 

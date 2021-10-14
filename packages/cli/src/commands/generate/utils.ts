@@ -9,6 +9,7 @@ import { camelCase } from 'lodash';
 import prettier from 'prettier';
 
 import { NoProjectFoundError } from '../../errors';
+import { readAppConfig } from '../../utils';
 
 export function fileExists(filename: string): Promise<boolean> {
   return new Promise((r) => {
@@ -41,17 +42,24 @@ export function pascalCase(name: string): string {
 /**
  * Expands a module path received through the CLI:
  *
- * isModule = true -> foo/bar -> src/app/modules/foo/modules/bar
- * isModule = false -> foo/bar -> src/app/modules/foo/bar
+ *
+ * isModule = true, name = foo -> {appModule}/modules/foo
+ * isModule = false, name = foo -> {appModule}
+ *
+ * isModule = true, name = foo/bar -> {appModule}/modules/foo/modules/bar
+ * isModule = false, name = foo/bar -> {appModule}/modules/foo
  */
-export function getModuleFolder(name: string, isModule: boolean): string {
-  // is a root module
+export async function getModuleFolder(name: string, isModule: boolean): Promise<string> {
+  const projectRoot = await findProjectRoot();
+  const { appModule } = readAppConfig(projectRoot);
+
+  // it's a root module
   if (!name.includes('/')) {
-    return isModule ? path.join('src/app/modules', name) : path.join('src/app');
+    return isModule ? path.join(appModule, 'modules', name) : path.join(appModule);
   }
 
   const modules = isModule ? name.split('/') : name.split('/').slice(0, -1);
-  return path.join('src/app/modules', modules.join('/modules/'));
+  return path.join(appModule, 'modules', modules.join('/modules/'));
 }
 
 export function prettierFormat(code: string): string {
