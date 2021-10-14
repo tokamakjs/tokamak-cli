@@ -26,7 +26,7 @@ export default function main(version: string): void {
       logLine(chalk.red('Could not find a valid tokamak project.'));
     }
 
-    if (err.code === 'commander.help') {
+    if (err.code === 'commander.helpDisplayed') {
       return; // ignore it
     }
 
