@@ -1,4 +1,5 @@
 name: TOKAMAK APP
 port: 4200
+app_module: app
 env:
   - NODE_ENV
