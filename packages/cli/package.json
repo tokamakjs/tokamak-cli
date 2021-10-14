@@ -1,6 +1,6 @@
 {
   "name": "@tokamakjs/cli",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Tokamak cli.",
   "author": "Lars <lars.bs@hotmail.com>",
   "license": "MIT",
