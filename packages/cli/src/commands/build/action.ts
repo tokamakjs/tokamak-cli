@@ -14,6 +14,7 @@ export async function buildAction(): Promise<void> {
     appName: appConfig.name,
     env: appConfig.env,
     port: appConfig.port,
+    publicFolder: appConfig.publicFolder,
   });
 
   const compiler = webpack(webpackConfig);

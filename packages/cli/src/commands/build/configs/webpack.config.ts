@@ -35,7 +35,10 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
       splitChunks: { name: 'vendor', chunks: 'all' },
     },
     plugins: [
-      new HtmlWebpackPlugin({ filename: 'index.html', template: './public/index.html' }),
+      new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: path.join(params.publicFolder, 'index.html'),
+      }),
       new EnvironmentPlugin(params.env),
       new BetterProgressPlugin({ mode: 'detailed', context: webpack }),
     ],

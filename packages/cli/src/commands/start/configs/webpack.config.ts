@@ -1,3 +1,5 @@
+import path from 'path';
+
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BetterProgressPlugin, initialAppMessage } from '@tokamakjs/dev-utils';
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
@@ -34,7 +36,10 @@ export function createWebpackConfig(params: WebpackConfigParams): Configuration 
       emitOnErrors: false,
     },
     plugins: [
-      new HtmlWebpackPlugin({ filename: 'index.html', template: './public/index.html' }),
+      new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: path.join(params.publicFolder, 'index.html'),
+      }),
       new EnvironmentPlugin(params.env),
       new BetterProgressPlugin({
         context: webpack,
